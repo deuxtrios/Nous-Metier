@@ -51,18 +51,10 @@ const read = (req, res) => {
 
 const update = async (req, res) => { 
     try {
-<<<<<<< HEAD
         req.job.set(req.body);
         req.job.updated = Date.now();
         await req.job.save();
         res.json(req.body);
-=======
-        let job = req.job;
-        job = extend(job, req.body);
-        job.updated = Date.now();
-        await job.save();
-        res.json(job);
->>>>>>> ed15ed6c9d5e63906872920b2cf9b78914ed9f71
     }
     catch (err) {
         return res.status(400).json({
