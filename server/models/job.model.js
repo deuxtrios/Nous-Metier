@@ -27,7 +27,7 @@ const JobSchema = new mongoose.Schema({
 
     category: {
         type: String,
-        enum: ['Food Service', 'Retail', 'Warehouse', 'Hospitality', 'Office', 'Events'],
+        enum: ['Food service', 'Retail', 'Warehouse', 'Hospitality', 'Office', 'Events'],
         required: 'Category is required'
     },
 
