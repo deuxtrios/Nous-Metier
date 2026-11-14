@@ -1,22 +1,24 @@
 import dotenv from 'dotenv'
-dotenv.config()
+import path from 'path'
+import { fileURLToPath } from 'url'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+dotenv.config({ path: path.join(__dirname, '.env') })
 
 import config from './config/config.js'
 import app from './server/express.js'
 import dns from 'dns';
-dns.setServers(['8.8.8.8'])
 import mongoose from 'mongoose'
-mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri, {
+// mongoose.Promise = global.Promise
 
-})
-.then(() => {
-    console.log("Connected to the database!");
-})
+dns.setServers(['8.8.8.8'])
 
-mongoose.connection.on('error', () => {
-    throw new Error(`unable to connect to database: ${config.mongoUri}`)
-})
+mongoose.connect(config.mongoUri) 
+    .then(() => console.log('Connected to the database!'))
+    .catch((err) => {
+        console.error('Unable to connect to database: ', err.message)
+        process.exit(1)
+    })
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to User application." });
 });
