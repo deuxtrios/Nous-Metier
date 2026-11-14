@@ -8,8 +8,8 @@ export default function Header({ signedIn = false, onSignOut }) {
   return (
     <header className="topbar">
       <div className="wrap navline">
-        <Link to="/" className="brand">
-          <div className="mark" aria-hidden="true">N</div>
+        <Link to="/" className="brand" aria-label="Nous Métier, go to Home">
+          <img src="/nous-metier-icon.svg" alt="" width="34" height="34" aria-hidden="true" />
           <span className="brand-name">Nous Métier</span>
         </Link>
 
