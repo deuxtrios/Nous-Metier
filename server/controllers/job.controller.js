@@ -52,7 +52,7 @@ const read = (req, res) => {
 
 const update = async (req, res) => {
     try {
-        let job = req.body;
+        let job = req.job;
         job = extend(job, req.body);
         job.updated = Date.now();
         await job.save();
