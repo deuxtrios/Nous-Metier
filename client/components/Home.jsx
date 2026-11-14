@@ -166,7 +166,7 @@ const Home = () => {
           <p data-template-id="employer-copy" className="canva-text" style={bodyTextStyle}>
             Create a clear listing and reach candidates in Canada and beyond.
           </p>
-          <Link className="btn secondary canva-button" to="/postJob" data-template-id="employer-cta" style={secondaryButtonStyle}>
+          <Link className="btn secondary canva-button" to="/post-job" data-template-id="employer-cta" style={secondaryButtonStyle}>
             Post a Job
           </Link>
         </article>
