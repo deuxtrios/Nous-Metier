@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import jobs from '../src/data/jobs';
+import JobCard from './JobCard';
 
 const eyebrowStyle = {
   color: "rgb(49, 91, 186)",
@@ -140,10 +142,12 @@ const Home = () => {
         <h2 data-template-id="latest-heading" className="canva-text" style={headingStyle}>
           Latest jobs
         </h2>
-        <button type="button" className="linkbtn" data-route="/jobs">View all →</button>
+        <Link to="/jobs" className="linkbtn">View all →</Link>
       </div>
 
-      <div id="latestJobs" className="jobgrid"></div>
+      <div id="latestJobs" className="jobgrid">
+        {jobs.slice(0, 3).map(job => <JobCard key={job.id} job={job} />)}
+      </div>
 
 
       <div className="splitbox">
