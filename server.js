@@ -1,9 +1,4 @@
-import dotenv from 'dotenv'
-import path from 'path'
-import { fileURLToPath } from 'url'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-dotenv.config({ path: path.join(__dirname, '.env') })
-
+import './loadEnv.js';
 import config from './config/config.js'
 import app from './server/express.js'
 import dns from 'dns';

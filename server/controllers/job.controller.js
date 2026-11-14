@@ -1,5 +1,4 @@
 import Job from "../models/job.model.js";
-import extend from "lodash/extend.js";
 import errorHandler from "../helpers/dbErrorHandler.js";
 
 const create = async (req, res) => {
@@ -50,13 +49,12 @@ const read = (req, res) => {
     return res.json(req.job);
 };
 
-const update = async (req, res) => {
+const update = async (req, res) => { 
     try {
-        let job = req.body;
-        job = extend(job, req.body);
-        job.updated = Date.now();
-        await job.save();
-        res.json(job);
+        req.job.set(req.body);
+        req.job.updated = Date.now();
+        await req.job.save();
+        res.json(req.body);
     }
     catch (err) {
         return res.status(400).json({
