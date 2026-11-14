@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import jobs from "./data/jobs";
+import JobCard from "../components/JobCard";
 
 const headingStyle = {
   color: "rgb(24, 35, 56)",
@@ -31,7 +33,9 @@ export default function Dashboard() {
         <Link to="/jobs" className="linkbtn">See all jobs →</Link>
       </div>
 
-      <div id="recommendedJobs" className="jobgrid"></div>
+      <div id="recommendedJobs" className="jobgrid">
+        {jobs.slice(0, 4).map(job => <JobCard key={job.id} job={job} />)}
+      </div>
 
       <div className="card p-5 mt-6 flex flex-wrap justify-between items-center gap-4">
         <div>
